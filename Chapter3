@@ -1,1 +1,85 @@
+--TRUNCATE TABLE/
+--TRUNCATE TABLE _ CASCADE/
+--DESC table_name
+
+select * from ports;
+
+Creat table Ports (
+Port_ID     number,
+Port_name   varchar2(20),
+Country     varchar2(40),
+Capacity    number,
+Constraint Ports_pk primary key (port_id));
+
+insert into ports values (315, 'Atlanta','USA',100000);
+
+Create table ships
+(ship_ID    number,
+ship_name   varchar2(20),
+Home_port_id    number,
+constraint ships_ports_fk foreign key (home_port_id) references ports (port_id) on delete cascade);
+
+insert into ships values (4000, 'Codd Land Rover', 315);
+insert into ships values (4001, 'Codd Vessel Two',Null);
+
+commit;
+select * from ships;
+
+Truncate table ports;
+
+delete ports;
+
+select * from user_constraints where Table_name = 'PORTS';
+select * from user_constraints where Table_name = 'SHIPS';
+
+--insert and constraints
+
+create table cruises(
+cruise_id number,
+cruise_type_id  number,
+cruise_name varchar2(30),
+captain_id  number not null,
+start_date date,
+end_date date,
+status  varchar2(5),
+constraint cruise_id_pk primary key(cruise_id),
+constraint cruise_name_ck check (cruise_name in ('Hawaii', 'Bahamas','Bermuda','Mexico', 'Day at Sea')));
+
+insert into cruises (cruise_id, cruise_type_id, cruise_name,captain_id,start_date,end_date,status) 
+values (1, 1, 'Day at Sea',101,'02-JAN-10','09-Jan-10','Sched');
+
+insert into cruises values (2, 1, 'Hawaii',102,'02-JAN-10','09-Jan-10','Sched');
+
+insert into cruises values (3,102, 'Hawaii',2,'02-JAN-10','09-Jan-10','Sched');
+
+commit;
+
+select * from cruises;
+
+create sequence seq_cruise_id;---error because of SEQUENCE is always start 1---
+create sequence seq_cruise_id start with 5;
+
+insert into cruises (cruise_id,captain_id, cruise_name) values (seq_cruise_id.nextval,103,'Hawaii');
+insert into cruises (cruise_id,captain_id, cruise_name) values (seq_cruise_id.nextval,104,'Huwaii to back');---error because of CHECK constraint---
+insert into cruises (cruise_id,captain_id, cruise_name) values (seq_cruise_id.nextval,104,'Bahamas');
+
+---UPDATE ROWS IN A TABLE
+--- WITH EXPRESSIONS
+
+update cruises set cruise_name = 'Bahamas', start_date = '01-Dec-11' where cruise_id = 1;
+
+create table compensation(
+employee_number number,
+salary number,
+last_changed_date date,
+constraint employee_number_pk primary key (employee_number));
+
+insert into compensation values (1, 500000, '01-Dec-2018');
+insert into compensation values (2, 700000, '01-Dec-2019');
+
+commit;
+
+select * from compensation;
+
+update compensation set salary = salary * 1.03, last_changed_date = sysdate where employee_number = 1;
 
