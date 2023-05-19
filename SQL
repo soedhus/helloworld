@@ -1,0 +1,23 @@
+Chapter 2
+
+create table test_char
+(test_id number,
+test_name char);
+
+insert into test_char values (1,'H');
+insert into test_char values (1,'1');
+
+select * from test_char;
+select  (round(10.25))   from dual;
+select (10.25) from dual;
+select ( round (10.25,3)) from dual;
+select round (15.193,-1) "round" from dual;
+
+select round (166.993,-2) "round" from dual;
+select round (1059.34,-2) "round" from dual;
+select round (1659.34,-4) "round" from dual;
+select round (4.56) "round" from dual;
+select  round (1059.34,-2) "round" from dual;
+select  round (1059.34,-3) "round" from dual;
+select  round (1559.34,-3) "round" from dual;
+select  round (1559.34,-1) "round" from dual;
