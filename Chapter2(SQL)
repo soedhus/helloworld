@@ -1,4 +1,4 @@
---n,mChapter 2
+--Chapter 2
 
 create table test_char
 (test_id number,
