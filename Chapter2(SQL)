@@ -1,4 +1,4 @@
-Chapter 2
+--n,mChapter 2
 
 create table test_char
 (test_id number,
@@ -21,3 +21,16 @@ select  round (1059.34,-2) "round" from dual;
 select  round (1059.34,-3) "round" from dual;
 select  round (1559.34,-3) "round" from dual;
 select  round (1559.34,-1) "round" from dual;
+
+--number(n,m)
+
+Create table Test_Number1(
+test_number1 number,
+test_number2 number(2),
+test_number3 number(5,2),
+test_number4 number(5,2),
+test_number5 number(4,2),
+test_number6 number(4,1),
+test_number7 number(3,2),
+test_number8 number(5,-2));
+
