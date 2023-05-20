@@ -83,3 +83,29 @@ select * from compensation;
 
 update compensation set salary = salary * 1.03, last_changed_date = sysdate where employee_number = 1;
 
+create table projects(
+project_id number primary key,
+project_name varchar2(40),
+cost number,
+constraint ck_post check (cost < 1000000));
+
+insert into projects (project_id, project_name, cost) values (1, 'Hull Cleaning', 340000);
+insert into projects (project_id, project_name, cost) values (2, 'Deck Resurfacing', 964000);
+insert into projects (project_id, project_name, cost) values (3, 'Lifeboat Inspectation', 12000);
+
+--DELETE ROWS FROM A TABLE
+
+select * from projects;
+
+update projects set cost = cost * 1.20;--error because check cause effect in cost 964000 row [ORA-02290: check constraint (TECHIES_ADMIN4.CK_POST) violated]
+
+update projects set cost = cost * 1.20 where cost*1.20 < 1000000;
+
+commit;
+
+delete from projects where project_id=2;
+delete projects where project_id=2;
+
+rollback;
+
+
