@@ -1,0 +1,74 @@
+--select statement with order by--
+--Asc & Desc--
+
+create table addresses(
+address_id number primary key,
+street_address varchar2(50),
+city varchar2(30),
+state varchar2(20),
+country varchar2(20));
+
+drop table addresses;
+
+insert into addresses values(1,'350 Oracle Parkway','Redwood City','CA','USA');
+insert into addresses values(2,'1600 Amphaitheatre Parkway','Mountain View','CA','USA');
+insert into addresses values(3,'1 Dell Way','Round Rock','TX','USA');
+insert into addresses values(4,'29 E Ohio St','Chicago','IL','USA');
+insert into addresses values(5,'5788 Rosewell Rd NE','Atlanta','GA','USA');
+insert into addresses values(6,'10103 100 St NW','Edmonton','AB','Canada');
+insert into addresses values(7,'1221 Avenue of the Americas','New York','NY','USA');
+insert into addresses values(8,'239 Baker Street','London',null,'UK');
+insert into addresses values(9,'1 rue des Carrieres','Quebec City','QC','Canada');
+insert into addresses values(10,'2041 S Harbor Blvd','Anaheim','CA','USA');
+
+commit;
+
+select * from addresses;
+
+select * 
+from addresses
+order by state;
+
+select address_id,street_address,city,state,country
+from addresses 
+order by state,city;
+
+select address_id,street_address,country
+from addresses
+order by state,city;
+
+select * --* is the same( address_id,street_address,city,state,country)
+from addresses
+order by city asc;
+
+select * from addresses
+order by state asc,city desc;
+
+--order by with Expression--
+
+create table project(
+project_id number primary key,
+ship_id number,
+project_name varchar2(50),
+project_cost number,
+days number);
+
+insert into project values(1,2,'Deck Resurfacing',964000,10);
+insert into project values(2,3,'Lifeboat Inspection',12000,3);
+insert into project values(3,1,'Clean Pools',37000,5);
+insert into project values(4,1,'Replace Lobby Carpeting',137000,5);
+insert into project values(5,1,'Major Engine Service',837000,15);
+insert into project values(6,1,'Remodel Dining Room A',950000,45);
+insert into project values(7,1,'Remodel Dining Room B',925000,37);
+insert into project values(8,1,'Lifeboat Inspection',12000,3);
+insert into project values(9,1,'Clean Schools',200000,10);
+
+commit;
+
+select * from project;
+
+select * from project
+order by project_cost/days;
+
+select project_id,project_name,project_cost,days,project_cost/days 
+from project order by project_cost/days;
