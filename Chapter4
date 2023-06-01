@@ -72,3 +72,16 @@ order by project_cost/days;
 
 select project_id,project_name,project_cost,days,project_cost/days 
 from project order by project_cost/days;
+
+--with column alias--
+
+select project_id,project_name,project_cost,days,project_cost/days "per day cost" 
+from project order by "per day cost";---use with double quote---
+
+select project_id,project_name,project_cost,days,project_cost/days as "per day cost" 
+from project order by "per day cost";---use keyword(AS) and with double quote---
+
+select project_id,project_name,project_cost,days,project_cost/days as per_day_cost
+from project order by per_day_cost;---if don't use double quote,you use AS keyword---
+
+
