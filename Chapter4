@@ -84,4 +84,32 @@ from project order by "per day cost";---use keyword(AS) and with double quote---
 select project_id,project_name,project_cost,days,project_cost/days as per_day_cost
 from project order by per_day_cost;---if don't use double quote,you use AS keyword---
 
+--Reference by Positions--
+
+select project_id, project_name, project_cost, days, project_cost / days as per_day_cost from project order by 5;
+
+select project_id, project_name, project_cost, days, project_cost / days as per_day_cost from project order by 1;
+
+select project_id, project_name, project_cost, days, project_cost / days as per_day_cost from project order by 4 DESC;
+
+--Combination--
+
+select ship_id, project_cost, project_name "The Project", DAYS 
+from project
+order by ship_id desc,"DAYS", 2;
+
+select ship_id, project_cost, project_name "The Project", DAYS 
+from project
+order by ship_id desc,"The Project", 2;
+
+update project set project_name ='Remodel Dining Room B' where project_id = 7;
+
+commit;
+
+
+
+
+
+
+
 
