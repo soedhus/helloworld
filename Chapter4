@@ -106,7 +106,20 @@ update project set project_name ='Remodel Dining Room B' where project_id = 7;
 
 commit;
 
+--4.02--
+--with WHERE Clause--
 
+Select * from projects;
+
+select * from projects where ship_id = 1;
+
+select * from projects where days > 30;
+
+select * from projects where project_cost > 500000 * 1.2;
+
+select * from projects where project_name = 'Clean Pools';
+
+select * from projects where project_name = 'CLEAN POOLS'; --Case sensitive
 
 
 
