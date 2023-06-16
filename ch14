@@ -1,0 +1,9 @@
+---In SQL Plus---
+--create user--
+
+  create user <username> identified by <password>;
+<username>c##____ (c##=container database)
+
+  grant create session to <username>;
+
+  
