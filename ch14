@@ -8,7 +8,11 @@
   2.grant unlimited tablespace to <username>;
   3.grant create table to <username>;
 
-  --any--
+--any--
 
-  grant create ANY table to <username>;--any ပါရင်ဘယ် user acc မှာမဆို create လုပ်ခွင့်ရမယ်
+  grant create ANY table to <username>;--any ပါရင်ဘယ် user acc မှာမဆို create လုပ်ခွင့်ရမယ်--
+
+--with admin option--
+
+  grant privilege to <username> with ADMIN OPTION;--if you use with admin option, grantပေးလိုက်တဲ့userကနေတခြားuserတွေကိုgrantလုပ်ခွင့်ရမယ်--
   
