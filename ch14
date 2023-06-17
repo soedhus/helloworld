@@ -4,6 +4,11 @@
   create user <username> identified by <password>;
 <username>c##____ (c##=container database)
 
-  grant create session to <username>;
+  1.grant create session to <username>;
+  2.grant unlimited tablespace to <username>;
+  3.grant create table to <username>;
 
+  --any--
+
+  grant create ANY table to <username>;--any ပါရင်ဘယ် user acc မှာမဆို create လုပ်ခွင့်ရမယ်
   
