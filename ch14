@@ -14,5 +14,16 @@
 
 --with admin option--
 
-  grant privilege to <username> with ADMIN OPTION;--if you use with admin option, grantပေးလိုက်တဲ့userကနေတခြားuserတွေကိုgrantလုပ်ခွင့်ရမယ်--
-  
+ <1M> grant privilege to <username> with ADMIN OPTION;--if you use with admin option, grantပေးလိုက်တဲ့userကနေတခြားuserတွေကိုgrantလုပ်ခွင့်ရမယ်--
+                                                      --note(Revokeပြန်လုပ်ရင်တော့..) --
+
+--all privileges--
+
+  grant all privileges to <username>;
+  grant all privileges to <username> with ADMIN OPTION;--It is so dangerous,if you use that--
+
+--public--
+
+  grant create any table to public;
+
+
